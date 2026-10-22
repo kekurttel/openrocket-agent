@@ -1,0 +1,193 @@
+{
+  "arc_payload.ork": {
+    "conditions": "rüzgâr 0 m/s, türbülans 0, dosyanın kendi rampa ayarı",
+    "file": "designs/examples/arc_payload.ork",
+    "seed": 1,
+    "simulations": [
+      {
+        "apogee_m": 452.1894514210456,
+        "deployment_velocity_mps": 14.376172777723243,
+        "flight_time_s": 110.1257330703442,
+        "index": 0,
+        "landing_velocity_mps": 4.273936124315962,
+        "max_acceleration_mps2": 196.7593046700029,
+        "max_velocity_mps": 150.32454388453354,
+        "optimum_delay_s": 6.795164062499989,
+        "rail_exit_velocity_mps": 19.69534881742317,
+        "stability_at_launch_cal": 2.6721739844702537,
+        "time_to_apogee_s": 8.225164062499989
+      }
+    ]
+  },
+  "chute_release.ork": {
+    "conditions": "rüzgâr 0 m/s, türbülans 0, dosyanın kendi rampa ayarı",
+    "file": "designs/examples/chute_release.ork",
+    "seed": 1,
+    "simulations": [
+      {
+        "apogee_m": 309.96229793761273,
+        "deployment_velocity_mps": 14.230602812978615,
+        "flight_time_s": 51.79480537175754,
+        "index": 0,
+        "landing_velocity_mps": 4.750524770670659,
+        "max_acceleration_mps2": 62.13917352272397,
+        "max_velocity_mps": 72.18369021405452,
+        "optimum_delay_s": 6.149999999999985,
+        "rail_exit_velocity_mps": 18.498435685776318,
+        "stability_at_launch_cal": 5.521355988514488,
+        "time_to_apogee_s": 8.449999999999985
+      },
+      {
+        "apogee_m": 490.312021797243,
+        "deployment_velocity_mps": 14.206239202285392,
+        "flight_time_s": 65.98949328296018,
+        "index": 1,
+        "landing_velocity_mps": 4.7420327907781346,
+        "max_acceleration_mps2": 88.67871339011116,
+        "max_velocity_mps": 106.39962010620262,
+        "optimum_delay_s": 8.140951171875006,
+        "rail_exit_velocity_mps": 22.71026956499481,
+        "stability_at_launch_cal": 5.479577956960661,
+        "time_to_apogee_s": 9.948851171875006
+      }
+    ]
+  },
+  "simple_model.ork": {
+    "conditions": "rüzgâr 0 m/s, türbülans 0, dosyanın kendi rampa ayarı",
+    "file": "designs/examples/simple_model.ork",
+    "seed": 1,
+    "simulations": [
+      {
+        "apogee_m": 51.05382008139654,
+        "deployment_velocity_mps": 2.5290781256957446,
+        "flight_time_s": 15.962010700750655,
+        "index": 0,
+        "landing_velocity_mps": 4.16305493568696,
+        "max_acceleration_mps2": 143.73839602712874,
+        "max_velocity_mps": 29.342307654549543,
+        "optimum_delay_s": 2.740499999999996,
+        "rail_exit_velocity_mps": 15.37208097001998,
+        "stability_at_launch_cal": 2.981543144409705,
+        "time_to_apogee_s": 3.470499999999996
+      },
+      {
+        "apogee_m": 136.41371945373987,
+        "deployment_velocity_mps": 3.546523892421834,
+        "flight_time_s": 38.264962359857435,
+        "index": 1,
+        "landing_velocity_mps": 4.157950330903587,
+        "max_acceleration_mps2": 182.93997023137135,
+        "max_velocity_mps": 53.346468902108064,
+        "optimum_delay_s": 4.3731445312499995,
+        "rail_exit_velocity_mps": 17.79527943986945,
+        "stability_at_launch_cal": 2.7980516350694704,
+        "time_to_apogee_s": 5.310002832922046
+      },
+      {
+        "apogee_m": 280.2138887908856,
+        "deployment_velocity_mps": 32.055473966255036,
+        "flight_time_s": 72.96168906460761,
+        "index": 2,
+        "landing_velocity_mps": 4.13746914168084,
+        "max_acceleration_mps2": 191.40902483389672,
+        "max_velocity_mps": 95.42824413368241,
+        "optimum_delay_s": 5.97314453124999,
+        "rail_exit_velocity_mps": 17.800148070335432,
+        "stability_at_launch_cal": 2.4922424713047,
+        "time_to_apogee_s": 5.428360483216629
+      },
+      {
+        "apogee_m": 319.136127593905,
+        "deployment_velocity_mps": 9.70668088534846,
+        "flight_time_s": 84.1261491876747,
+        "index": 3,
+        "landing_velocity_mps": 4.137469128992551,
+        "max_acceleration_mps2": 191.40902483389672,
+        "max_velocity_mps": 95.42824413368241,
+        "optimum_delay_s": 5.973144531249997,
+        "rail_exit_velocity_mps": 17.800148070335432,
+        "stability_at_launch_cal": 2.4922424713047,
+        "time_to_apogee_s": 7.317788536902218
+      },
+      {
+        "apogee_m": 322.35122162332186,
+        "deployment_velocity_mps": 9.574101244368673,
+        "flight_time_s": 84.82532335402686,
+        "index": 4,
+        "landing_velocity_mps": 4.137469112056627,
+        "max_acceleration_mps2": 191.40902483389672,
+        "max_velocity_mps": 95.42824413368241,
+        "optimum_delay_s": 5.99262499999998,
+        "rail_exit_velocity_mps": 17.800148070335432,
+        "stability_at_launch_cal": 2.4922424713047,
+        "time_to_apogee_s": 7.85262499999998
+      }
+    ]
+  },
+  "three_stage_low_power.ork": {
+    "conditions": "rüzgâr 0 m/s, türbülans 0, dosyanın kendi rampa ayarı",
+    "file": "designs/examples/three_stage_low_power.ork",
+    "seed": 1,
+    "simulations": [
+      {
+        "apogee_m": 276.74445959753575,
+        "deployment_velocity_mps": 4.409003726362099,
+        "flight_time_s": 74.11737264732722,
+        "index": 0,
+        "landing_velocity_mps": 4.159756682716236,
+        "max_acceleration_mps2": 126.55001660971053,
+        "max_velocity_mps": 78.36640473205921,
+        "optimum_delay_s": 5.473144531249999,
+        "rail_exit_velocity_mps": 11.20450266298599,
+        "stability_at_launch_cal": 2.873296223475279,
+        "time_to_apogee_s": 7.766102566244175
+      },
+      {
+        "apogee_m": 495.7093412067107,
+        "deployment_velocity_mps": 15.575928642274427,
+        "flight_time_s": 127.8521815751021,
+        "index": 1,
+        "landing_velocity_mps": 4.13415047509608,
+        "max_acceleration_mps2": 173.75580429277173,
+        "max_velocity_mps": 119.69445852708503,
+        "optimum_delay_s": 6.573144531250019,
+        "rail_exit_velocity_mps": 10.791665408650076,
+        "stability_at_launch_cal": 2.8603298770506447,
+        "time_to_apogee_s": 9.093237849873322
+      },
+      {
+        "apogee_m": 689.5351847675781,
+        "deployment_velocity_mps": 2.394947177250695,
+        "flight_time_s": 176.6554713968929,
+        "index": 2,
+        "landing_velocity_mps": 4.134150496422276,
+        "max_acceleration_mps2": 139.16883187971024,
+        "max_velocity_mps": 129.84653218821506,
+        "optimum_delay_s": 6.79693014038112,
+        "rail_exit_velocity_mps": 10.34519418412205,
+        "stability_at_launch_cal": 2.339348389520628,
+        "time_to_apogee_s": 12.32693014038112
+      }
+    ]
+  },
+  "tube_fin.ork": {
+    "conditions": "rüzgâr 0 m/s, türbülans 0, dosyanın kendi rampa ayarı",
+    "file": "designs/examples/tube_fin.ork",
+    "seed": 1,
+    "simulations": [
+      {
+        "apogee_m": 282.819470094293,
+        "deployment_velocity_mps": 10.121648133790252,
+        "flight_time_s": 75.52719706747678,
+        "index": 0,
+        "landing_velocity_mps": 3.894720325539194,
+        "max_acceleration_mps2": 388.6042209628415,
+        "max_velocity_mps": 119.4207749172938,
+        "optimum_delay_s": 4.311123178278088,
+        "rail_exit_velocity_mps": 18.89262892345129,
+        "stability_at_launch_cal": 1.8712581530471744,
+        "time_to_apogee_s": 5.911123178278088
+      }
+    ]
+  }
+}

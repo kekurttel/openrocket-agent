@@ -1,0 +1,4 @@
+# rocketlib / sim.py bağımlılıkları
+# OpenRocket 24.12 jar'ı ayrıca indirilir: `python -m orlab fetch`
+orlab>=0.10.0
+pytest>=8.0

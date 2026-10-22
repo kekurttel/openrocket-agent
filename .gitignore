@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# OpenRocket / orlab
+*.ork.bak
+~/.openrocket/
+
+# Tasarım çıktıları (isteğe bağlı)
+designs/iterations/*.ork
+designs/*-detail.ork
+designs/*-opt*.ork
+designs/*-simple.ork
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+EOF
+echo "gitignore yazıldı"
