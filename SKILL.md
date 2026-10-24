@@ -30,34 +30,53 @@ cp designs/examples/*.eng ~/.openrocket/ThrustCurves/ 2>/dev/null
 
 JDK 17+ gerekir. JVM bir kez başlar ve süreç boyunca yaşar (JPype kısıtı).
 
-## Bilgi tabanı (learn.md)
+## Kişisel bilgi tabanı (wiki) — isteğe bağlı
 
-Bu skill, repo'daki `learn.md` dosyasında bir bilgi tabanı ile birlikte gelir.
-**Her tasarım oturumunun başında** `learn.md` dosyasını oku. Bu dosya şu
-konuları içerir:
+Bu skill, **kişisel bir bilgi tabanı** ile birlikte gelmez. Kullanıcı kendi
+tasarımlarını ve öğrenilen dersleri takip etmek isterse, kendi wiki'sini
+oluşturabilir. Skill, kullanıcı kendi wiki'sini oluşturduğunda şu kuralları
+uygular:
 
-1. **Kritik hatalar** (10 madde): rampa açısı, paraşüt olayları, malzeme gerçeği,
-   motor kaybı, bileşke iniş hızı, tek gövdeli payload ayrılması, aşırı stabilite,
-   dar stabilite marjı, launch stabilitesi < 1.5, ve daha.
-2. **Tasarım prensipleri** (10 madde): kütle–sürükleme ticareti, burnout kütlesi,
-   burun L/D, kanat planformu, yanma sırasında kütle değişimi, paraşüt paketleme,
-   aviyonik kütlesi, iki kademeli vs tek kademeli, malzeme seçimi, motor seçimi.
-3. **Şartname maddeleri ve modellenebilirlik**: 24 maddenin OpenRocket'ta
-   modellenebilen ve modellenemeyen kısmı.
-4. **Araçlar ve yöntemler**: rocketlib fonksiyonları, simülasyon koşulları,
-   doğrulama komutları, motor eğrileri.
-5. **Tasarım sonuçları tablosu**: 7 tasarımın karşılaştırması.
-6. **Geliştirme prensipleri**: 15 madde, sürekli güncellenir.
+1. **Kullanıcının wiki'si varsa** (`wiki/index.md` veya `learn.md` mevcutsa):
+   - Her tasarım oturumunun başında `wiki/hot.md` ve `wiki/index.md` oku.
+   - Tasarım kararları verirken `wiki/concepts/` ve `wiki/sources/` sayfalarını danış.
+   - Her iterasyondan sonra `wiki/log.md`'ye tek satır yaz.
+   - `wiki/hot.md`'yi güncelle.
 
-**Tasarım kararları verirken** şu bölümleri danış:
-- `learn.md` §1 (Kritik hatalar) — yapılmaması gereken şeyler
-- `learn.md` §2 (Tasarım prensipleri) — en iyi uygulamalar
-- `learn.md` §3 (Şartname maddeleri) — modellenebilirlik sınırları
-- `learn.md` §5 (Tasarım sonuçları) — referans tasarımlar
+2. **Kullanıcının wiki'si yoksa**: wiki oluşturma teklif et (isteğe bağlı).
+   Wiki oluşturma için `wiki` skill'i kullanılabilir.
+
+3. **Kişisel veriler (tasarımlar, .ork dosyaları, wiki sayfaları) repoya
+   push edilmemeli.** `.gitignore` dosyası bu verileri zaten hariç tutar.
+   Kullanıcı kendi verisini kendi agent'ına sağlar.
+
+## Kritik dersler (learn.md'den özet)
+
+Bu skill, önceki tasarım süreçlerinden öğrenilen şu kritik dersleri içerir.
+**Her tasarım oturumunun başında** bu dersleri hatırla:
+
+1. **Rampa açısı:** OpenRocket rampa açısını düşeyden ölçer. `rod_angle=85`
+   verin (kütüphane dönüşümü yapar). 85° yükseliş = 5° düşeyden.
+2. **Paraşüt olayları:** `EJECTION` yerine `APOGEE`/`ALTITUDE` kullan.
+   Motor gecikmesi 0 ise `EJECTION` = burnout anıdır.
+3. **Motor kalıcılığı:** `.eng` dosyasını `~/.openrocket/ThrustCurves/` altına
+   kopyala. OpenRocket 24.12 `.ork` içine thrust curve **gömmüyor**.
+4. **Malzeme kontrolü:** `getMaterial().getDensity()` ile yoğunluğu kontrol et.
+   "Ad" kozmetiktir, "yoğunluk" fiziktir.
+5. **Kütle tabanı:** Motor + PAYLOAD zorunlu tabanı. 10.5–11.5 kg bandı
+   ulaşılamaz (M1850 + 4 kg payload = 11.010 kg).
+6. **Stabilite marjı:** 0.3 Mach stabilitesi en az 1.65–1.7 cal hedeflenmeli.
+   Burnout stabilitesi 2.5–4.0 cal arasında tutulmalı.
+7. **İki kademeli çözüm:** payload'ın bağımsız kurtarılması için gerekli.
+8. **Paraşüt paketleme:** paraşüt çapı büyüdükçe paketleme hacmi artar.
+9. **Yanma sırasında kütle değişimi:** CG öne kayar; stabilite artar. Kalkış ve
+   burnout stabilitesi ayrı raporlanmalı.
+10. **Determinizm:** rüzgâr 0, sabit seed.
 
 **Yeni bir tasarım yaparken** `designs/examples/` altındaki örnek `.ork`
 dosyalarını incele. Negatif örnekler (Ares, CAL Roket) neyin yapılmaması
-gerektiğini gösterir.
+gerektiğini gösterir. Kullanıcının kendi wiki'si varsa, oradaki negatif
+örnekleri de incele.
 
 ## Birimler (SI)
 

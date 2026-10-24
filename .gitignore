@@ -6,14 +6,20 @@ __pycache__/
 venv/
 
 # OpenRocket / orlab
-*.ork.bak
 ~/.openrocket/
 
-# Tasarım çıktıları (isteğe bağlı)
-designs/iterations/*.ork
+# Kişisel tasarımlar ve veri (kullanıcı kendi verisini ekler)
+designs/m1850-*/
 designs/*-detail.ork
 designs/*-opt*.ork
 designs/*-simple.ork
+designs/*rocket.ork
+designs/BAŞLI*/
+incelenek/
+wiki/
+learn.md
+*.ork.bak
+*.ork.zip
 
 # IDE
 .vscode/
@@ -23,5 +29,3 @@ designs/*-simple.ork
 # OS
 .DS_Store
 Thumbs.db
-EOF
-echo "gitignore yazıldı"
