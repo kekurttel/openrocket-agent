@@ -30,28 +30,34 @@ cp designs/examples/*.eng ~/.openrocket/ThrustCurves/ 2>/dev/null
 
 JDK 17+ gerekir. JVM bir kez başlar ve süreç boyunca yaşar (JPype kısıtı).
 
-## Wiki bilgi tabanı
+## Bilgi tabanı (learn.md)
 
-Bu skill, repo'daki `wiki/` klasöründe bir Obsidian uyumlu bilgi tabanı ile
-birlikte gelir. **Her tasarım oturumunun başında** şu dosyaları oku:
+Bu skill, repo'daki `learn.md` dosyasında bir bilgi tabanı ile birlikte gelir.
+**Her tasarım oturumunun başında** `learn.md` dosyasını oku. Bu dosya şu
+konuları içerir:
 
-1. `wiki/hot.md` — son bağlam özeti (~500 kelime)
-2. `wiki/index.md` — ana katalog (14 tasarım, kavramlar, karşılaştırmalar)
-3. `wiki/sources/_index.md` — kaynak sayfaları dizini
+1. **Kritik hatalar** (10 madde): rampa açısı, paraşüt olayları, malzeme gerçeği,
+   motor kaybı, bileşke iniş hızı, tek gövdeli payload ayrılması, aşırı stabilite,
+   dar stabilite marjı, launch stabilitesi < 1.5, ve daha.
+2. **Tasarım prensipleri** (10 madde): kütle–sürükleme ticareti, burnout kütlesi,
+   burun L/D, kanat planformu, yanma sırasında kütle değişimi, paraşüt paketleme,
+   aviyonik kütlesi, iki kademeli vs tek kademeli, malzeme seçimi, motor seçimi.
+3. **Şartname maddeleri ve modellenebilirlik**: 24 maddenin OpenRocket'ta
+   modellenebilen ve modellenemeyen kısmı.
+4. **Araçlar ve yöntemler**: rocketlib fonksiyonları, simülasyon koşulları,
+   doğrulama komutları, motor eğrileri.
+5. **Tasarım sonuçları tablosu**: 7 tasarımın karşılaştırması.
+6. **Geliştirme prensipleri**: 15 madde, sürekli güncellenir.
 
-**Tasarım kararları verirken** şu wiki sayfalarını danış:
-- `wiki/concepts/rampa-acisi-konusu.md` — rampa açısı dönüşümü (EN KRİTİK HATA)
-- `wiki/concepts/parasut-acilma-olaylari.md` — paraşüt olayları
-- `wiki/concepts/kutle-tabani-m1850.md` — M1850 kütle tabanı (10.5–11.5 kg ulaşılamaz)
-- `wiki/concepts/m1850-apogee-fizigi.md` — kütle–sürükleme ticareti
-- `wiki/comparisons/en-yuksek-irtifa.md` — 9 tasarımın irtifa sıralaması
-- `wiki/comparisons/m1850-rekabet.md` — M1850 tasarımlarının karşılaştırması
-- `wiki/sources/` — her tasarımın detaylı çözümlemesi
-- `wiki/meta/parsing-methodology.md` — çözümleme yöntemi
+**Tasarım kararları verirken** şu bölümleri danış:
+- `learn.md` §1 (Kritik hatalar) — yapılmaması gereken şeyler
+- `learn.md` §2 (Tasarım prensipleri) — en iyi uygulamalar
+- `learn.md` §3 (Şartname maddeleri) — modellenebilirlik sınırları
+- `learn.md` §5 (Tasarım sonuçları) — referans tasarımlar
 
-**Yeni bir tasarım yaparken** önce `wiki/sources/` altındaki örnek tasarımları
-incele; negatif örnekler (Ares, CAL Roket) neyin yapılmaması gerektiğini
-gösterir.
+**Yeni bir tasarım yaparken** `designs/examples/` altındaki örnek `.ork`
+dosyalarını incele. Negatif örnekler (Ares, CAL Roket) neyin yapılmaması
+gerektiğini gösterir.
 
 ## Birimler (SI)
 
