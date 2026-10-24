@@ -1,6 +1,6 @@
 ---
 name: openrocket-design
-description: Design, simulate, and optimize rockets with OpenRocket 24.12 headless via rocketlib (Python). Use when the user asks to design a rocket, run an OpenRocket simulation, compute apogee/stability/rail-exit, optimize mass or aerodynamics, validate a design against a spec, or compare rocket configurations. Triggers on: "roket tasarla", "OpenRocket simülasyonu", "apogee hesapla", "stabilite", "rampa çıkışı", "paraşüt", "motor", ".ork dosyası", "design a rocket", "simulate rocket", "rocket optimization".
+description: Design, simulate, and optimize rockets with OpenRocket 24.12 headless via rocketlib (Python). Use when the user asks to design a rocket, run an OpenRocket simulation, compute apogee/stability/rail-exit, optimize mass or aerodynamics, validate a design against a spec, or compare rocket configurations. Triggers on: "roket tasarla", "OpenRocket simülasyonu", "apogee hesapla", "stabilite", "rampa çıkışı", "paraşüt", "motor", ".ork dosyası", "design a rocket", "simulate rocket", "rocket optimization", "TEKNOFEST", "roket yarışması".
 ---
 
 # OpenRocket Headless Roket Tasarım Skill'i
@@ -16,6 +16,7 @@ OpenRocket erişimi `rocketlib` üzerinden yapılır; ham Java/JPype çağrılma
 - Kullanıcı bir `.ork` dosyasını incelemek, değiştirmek veya yeniden çalıştırmak
   istiyor.
 - Kullanıcı bir şartnameye (ör. TEKNOFEST) göre tasarım doğrulaması istiyor.
+- Kullanıcı roket tasarımlarını karşılaştırmak istiyor.
 
 ## Kurulum (ilk kez)
 
@@ -28,6 +29,29 @@ cp designs/examples/*.eng ~/.openrocket/ThrustCurves/ 2>/dev/null
 ```
 
 JDK 17+ gerekir. JVM bir kez başlar ve süreç boyunca yaşar (JPype kısıtı).
+
+## Wiki bilgi tabanı
+
+Bu skill, repo'daki `wiki/` klasöründe bir Obsidian uyumlu bilgi tabanı ile
+birlikte gelir. **Her tasarım oturumunun başında** şu dosyaları oku:
+
+1. `wiki/hot.md` — son bağlam özeti (~500 kelime)
+2. `wiki/index.md` — ana katalog (14 tasarım, kavramlar, karşılaştırmalar)
+3. `wiki/sources/_index.md` — kaynak sayfaları dizini
+
+**Tasarım kararları verirken** şu wiki sayfalarını danış:
+- `wiki/concepts/rampa-acisi-konusu.md` — rampa açısı dönüşümü (EN KRİTİK HATA)
+- `wiki/concepts/parasut-acilma-olaylari.md` — paraşüt olayları
+- `wiki/concepts/kutle-tabani-m1850.md` — M1850 kütle tabanı (10.5–11.5 kg ulaşılamaz)
+- `wiki/concepts/m1850-apogee-fizigi.md` — kütle–sürükleme ticareti
+- `wiki/comparisons/en-yuksek-irtifa.md` — 9 tasarımın irtifa sıralaması
+- `wiki/comparisons/m1850-rekabet.md` — M1850 tasarımlarının karşılaştırması
+- `wiki/sources/` — her tasarımın detaylı çözümlemesi
+- `wiki/meta/parsing-methodology.md` — çözümleme yöntemi
+
+**Yeni bir tasarım yaparken** önce `wiki/sources/` altındaki örnek tasarımları
+incele; negatif örnekler (Ares, CAL Roket) neyin yapılmaması gerektiğini
+gösterir.
 
 ## Birimler (SI)
 
@@ -114,6 +138,35 @@ farklı süreçlerde sapma olur. Süreçler arası tekrarlanabilirlik için rüz
 Her bileşenin `getMaterial()` ile yoğunluğu kontrol edilmeli. "Ad" kozmetiktir,
 "yoğunluk" fiziktir. Örnek: "carbon" adlı bileşen gerçekte karton (680 kg/m³)
 olabilir.
+
+### 6. Kütle tabanı (M1850)
+
+Motor 7.010 kg + PAYLOAD 4.000 kg = **11.010 kg zorunlu taban**. 10.5–11.5 kg
+bandı ulaşılamaz; gerçekçi taban ~14–15 kg (M1850 için).
+
+### 7. Stabilite marjı
+
+- 0.3 Mach stabilitesi **en az 1.65–1.7 cal** hedeflenmeli (1.5 cal sınırına
+  çok yakın değerler kabul edilmemeli).
+- Min powered stabilite **≥ 1.5 cal** (tercihen ≥ 1.65 cal).
+- Burnout stabilitesi **2.5–4.0 cal** arasında tutulmalı (aşırı stabilite
+  weathercocking riski taşır).
+
+### 8. İki kademeli çözüm
+
+Payload'ın bağımsız kurtarılması (4.2.3, 4.3.3) için iki kademeli model gerekli.
+Tek gövdeli modelde bu maddeler "MODELLENMEDİ" olarak işaretlenmeli.
+
+### 9. Paraşüt paketleme
+
+Paraşüt çapı büyüdükçe paketleme hacmi artar. Gövde uzunluğu paraşüt paketleme
+hacmini hesaba katmalı (~0.2–0.3 m ek gövde uzunluğu).
+
+### 10. Yanma sırasında kütle değişimi
+
+Yanma sırasında CG öne kayar; stabilite artar. Kalkış stabilitesi ve burnout
+stabilitesi ayrı raporlanmalı. Min powered stabilite (kalkış stabilitesi) ≥ 1.0 cal
+(ideally ≥ 1.5 cal).
 
 ## Fonksiyon listesi (özet)
 
@@ -207,11 +260,13 @@ bandı ulaşılamaz; gerçekçi taban ~14–15 kg (M1850 için).
 5. **Bileşke iniş hızı:** faz bazlı koşu yap; bileşke hız hiçbir maddeyi doğrulamaz.
 6. **İki kademeli model:** payload'ın bağımsız kurtarılması için gerekli.
 7. **Determinizm:** rüzgâr 0, sabit seed.
+8. **Stabilite marjı:** 0.3 Mach stabilitesi en az 1.65–1.7 cal hedeflenmeli.
+9. **Burnout stabilitesi:** 2.5–4.0 cal arasında tutulmalı.
 
 ## Testler
 
 ```bash
-.venv/bin/python -m pytest -q   # 48-53 test geçmeli
+.venv/bin/python -m pytest -q   # 48-54 test geçmeli
 ```
 
 ## Referanslar
@@ -219,5 +274,7 @@ bandı ulaşılamaz; gerçekçi taban ~14–15 kg (M1850 için).
 - `docs/api_notes.md` — doğrulanmış OpenRocket/orlab API notları
 - `designs/examples/` — OpenRocket'ın örnek `.ork` dosyaları
 - `third_party/openrocket/` — OpenRocket kaynak kodu (salt okunur)
+- `learn.md` — öğrenilen dersler (hatalar, prensipler, şartname uyumu)
+- `wiki/` — Obsidian uyumlu bilgi tabanı (14 tasarım, kavramlar, karşılaştırmalar)
 EOF
-echo "SKILL.md yazıldı"
+echo "SKILL.md güncellendi"
