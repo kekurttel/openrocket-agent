@@ -50,7 +50,7 @@ uygular:
    push edilmemeli.** `.gitignore` dosyası bu verileri zaten hariç tutar.
    Kullanıcı kendi verisini kendi agent'ına sağlar.
 
-## Kritik dersler (learn.md'den özet)
+## Kritik dersler (önceki tasarım süreçlerinden)
 
 Bu skill, önceki tasarım süreçlerinden öğrenilen şu kritik dersleri içerir.
 **Her tasarım oturumunun başında** bu dersleri hatırla:
